@@ -1,0 +1,289 @@
+* {
+  text-decoration: none;
+  margin: 0px;
+  padding: 0px;
+  font-family: sans-serif;
+}
+#container {
+  /* 90% de  todo el ancho de la pantalla; */
+  width: 90%;
+  height: auto;
+  margin: 0px auto;
+  border: 1px solid rgba(225, 225, 226, 0.8);
+  /*box-shadow:  permite la sombra de la caja el primer es para la x el segundo y y el tercero el ancho en pixeles, color;*/
+  box-shadow: 0px 0px 10px #ccc;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  /*la altura minima de este cuadro es de 600px*/
+  min-height: 600px;
+}
+#header {
+  /*para poner un elmento delado del otro*/
+  display: flex;
+  /*esto biene por defecto*/
+  flex-direction: row;
+  /*esto permite que si algo se sale del acho, pase a la segunda fila*/
+  flex-wrap: wrap;
+  align-items: center;
+  height: 120px;
+  border-bottom: 1px solid rgba(225, 225, 226, 0.8);
+}
+
+.logo {
+  /*esto permite que ocupen todo el ancho si tienen disponible todo el espacio*/
+  flex-grow: 1;
+  flex-basis: 65%;
+
+  /*para el logo de footer*/
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: italic;
+  font-weight: 900;
+  font-size: 35px;
+  /*---------------------------*/
+  padding: 10px;
+  margin-left: 20px;
+  color: black;
+  text-shadow: 1px 1px 0px #ccc;
+  /*covierte texto de minuscula a mayuscula*/
+  text-transform: uppercase;
+}
+
+.logo h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: italic;
+  font-weight: 900;
+  font-size: 35px;
+}
+#menu {
+  /*esto permite que ocupen todo el ancho si tienen disponible todo el espacio*/
+  flex-grow: 1;
+  flex-basis: 30%;
+  height: 100%;
+  padding-right: 20px;
+}
+
+#menu > ul {
+  display: flex;
+  flex-direction: row;
+  /**/
+  flex-wrap: wrap;
+  /*quita los puntitos de la lista*/
+  list-style: none;
+  /*alinea los objetos al medio verticalmente*/
+  align-items: center;
+  justify-content: space-between;
+
+  height: 100px;
+}
+#menu a {
+  color: #444;
+  padding: 15px;
+  text-transform: uppercase;
+  transition: all 300ms;
+}
+#menu a:hover {
+  background-color: #ccc;
+  color: white;
+}
+
+/* conten#conteido */
+#content {
+  /**permite que los contenido sean flexibles*/
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+#proyects {
+  /*puedes cambiar el order de los bloques poniendo un orden */
+  /* order: -1; */
+  display: flex;
+  flex-flow: row wrap;
+
+  /*toma como ancho el 80% disponible de su caja , asi acomodo las cajas mejor*/
+  flex-basis: 80%;
+  /*esto me permite darle espacio y separarlos */
+  justify-content: space-between;
+  margin-right: 20px;
+}
+
+.proyect {
+  margin-bottom: 40px;
+  border: 1px solid #ccc;
+}
+.project-info {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.project-info a {
+  font-size: 16px;
+  color: black;
+  transition: all 300ms;
+}
+.project-info p {
+  font-size: 16px;
+  color: #444;
+}
+.project-info a:hover {
+  color: green;
+}
+#aside {
+  flex-basis: 15%;
+  margin-right: 30px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+#aside h2 {
+  width: 100%;
+  font-size: 18px;
+  font-weight: 100;
+  color: #444;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(225, 225, 226, 0.8);
+  text-align: center;
+}
+
+#aside ul {
+  /*para sacar los puntitos de la lista*/
+  list-style: none;
+}
+#aside ul li {
+  padding-bottom: 20px;
+}
+
+#aside a {
+  /*convierte el elemento en bloque para moder modificar su estructura*/
+  display: block;
+  padding: 20px;
+  background-color: #eee;
+  color: #444;
+  text-align: center;
+  /*para mejorar el efecto de hover*/
+  transition: all 300ms;
+  /*permite comvertir el texto en mayuscula*/
+  text-transform: uppercase;
+}
+#aside a:hover {
+  background-color: #444;
+  color: #eee;
+}
+
+#footer {
+  display: flex;
+
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  height: 120px;
+  align-items: center;
+  border-top: 1px solid rgba(225, 225, 226, 0.8);
+}
+#footer .logo {
+  order: 2;
+  /* para que sea mas trasparente */
+  opacity: 0.5;
+  /*para que ocupe todo el espacio disponible sin afectar a las demas cajas*/
+  flex-basis: auto;
+  flex-grow: 1;
+  text-align: right;
+  margin-right: 20px;
+}
+#footer .info {
+  order: 1;
+  flex-grow: 1;
+  margin-left: 20px;
+  color: #444;
+}
+
+@media (max-width: 1333px) {
+  #header {
+    text-align: center;
+  }
+
+  body {
+    /* background-color: red; */
+  }
+  #menu > ul {
+    margin-top: 20px;
+    align-items: flex-start;
+    justify-content: space-evenly;
+  }
+}
+
+@media (max-width: 653px) {
+  #footer .logo {
+    flex-grow: 1;
+    order: 1;
+    flex-basis: 100%;
+    text-align: center;
+    margin: 0px;
+  }
+  #footer .info {
+    flex-grow: 1;
+    order: 2;
+    flex-basis: 100%;
+    text-align: center;
+    margin: 0px;
+  }
+
+  #aside {
+    flex-basis: 15%;
+    margin-right: 30px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+
+}
+@media (max-width: 469px){
+    #header {
+
+        height: 160px;
+
+    }
+} 
+
+@media (max-width: 784px) {
+
+/* conten#conteido */
+#content {
+    /**permite que los contenido sean flexibles*/
+    display: flex;
+    /*para que lo que salga pasae a ptra fila*/
+    flex-wrap: wrap;
+    /*para que se comporte como una columna*/
+    flex-direction: column;
+
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  #aside{
+      margin: 0px;
+  }
+  
+  #proyects {
+    flex-basis: 100%;
+    justify-content: space-around;
+   margin-right: 5px;
+   margin-left: 5px;
+}
+#aside ul {
+   display: flex;
+   flex-flow: row wrap;
+  
+   justify-content: space-between;
+  }
+  /*ahora a cada elemento el grow para que ocupe todo el ancho si estan solo en una fila*/
+  #aside ul  li{
+flex-grow: 1;
+margin-left: 5px;
+margin-right: 5px;
+   }
+}
+ 
